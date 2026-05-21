@@ -1,0 +1,183 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#d9f3f3" />
+    <title>蒲牢·时光钟声</title>
+    <link rel="preload" as="image" href="./assets/page-1.jpg" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="蒲牢时光钟声游戏体验">
+      <section class="scene scene-home is-active" data-scene="home" data-design-width="750" data-design-height="1334" aria-label="开始页面">
+        <img class="scene-art" src="./assets/page-1.jpg" alt="蒲牢时光钟声开始页面" decoding="async" fetchpriority="high" />
+
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot icon-hotspot account" type="button" data-go="account" aria-label="账号"></button>
+
+        <label class="agreement" aria-label="同意用户协议和隐私政策">
+          <input id="agree" type="checkbox" checked />
+          <span></span>
+        </label>
+
+        <button id="startBtn" class="hotspot start-hotspot" type="button" aria-label="开始守护之旅">
+          <span class="pulse-ring"></span>
+        </button>
+      </section>
+
+      <section class="scene scene-loading" data-scene="loading" data-design-width="750" data-design-height="1334" aria-label="加载页面">
+        <img class="scene-art" data-src="./assets/page-2.jpg" alt="蒲牢时光钟声加载页面" decoding="async" />
+
+        <div class="loading-overlay" aria-live="polite">
+          <div class="loading-title">加载中 <span id="progressText">0%</span></div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div id="loadingStatus" class="status-bubble">正在敲响保圣寺的晨钟......</div>
+        <button id="replayBtn" class="replay-btn" type="button">重新体验</button>
+      </section>
+
+      <section class="scene scene-levels" data-scene="levels" data-design-width="750" data-design-height="1334" aria-label="关卡选择页面">
+        <img class="scene-art" data-src="./assets/page-3.jpg" alt="蒲牢时光钟声关卡选择页面" decoding="async" />
+
+        <button class="hotspot level-account" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot score-hotspot" type="button" data-toast="当前评分 2380" aria-label="当前评分"></button>
+        <button class="hotspot badge-hotspot" type="button" data-toast="已收集徽章 12/30" aria-label="已收集徽章"></button>
+
+        <button class="hotspot level-card level-1" type="button" aria-label="选择甪直桥"></button>
+        <button class="hotspot level-card level-2" type="button" aria-label="选择角端广场"></button>
+        <button class="hotspot level-card level-3" type="button" aria-label="选择永宁桥"></button>
+        <button class="hotspot level-card level-4" type="button" aria-label="选择永安桥"></button>
+        <button class="hotspot level-card level-5" type="button" aria-label="选择香花桥"></button>
+        <button class="hotspot level-card level-6" type="button" aria-label="选择保圣寺"></button>
+
+        <button id="backHomeBtn" class="hotspot back-home-hotspot" type="button" aria-label="返回首页"></button>
+        <button id="continueBtn" class="hotspot continue-hotspot" type="button" aria-label="继续冒险">
+          <span class="pulse-ring"></span>
+        </button>
+      </section>
+
+      <section class="scene scene-mine" data-scene="mine" data-design-width="1024" data-design-height="1536" aria-label="扫雷守护页面">
+        <img class="scene-art" data-src="./assets/page-4.jpg" alt="蒲牢时光钟声扫雷守护页面" decoding="async" />
+
+        <div id="mineBellCounter" class="mine-stat mine-bell-stat">3/3</div>
+        <div id="mineScoreCounter" class="mine-stat mine-score-stat">320</div>
+        <span class="mine-bell-label-cover" aria-hidden="true"></span>
+
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot level-account" type="button" data-go="account" aria-label="账号"></button>
+
+        <div id="mineBoard" class="mine-board" aria-label="扫雷棋盘"></div>
+        <div id="mineEffect" class="mine-effect" aria-live="polite"></div>
+
+        <button id="mineBackBtn" class="hotspot mine-back-hotspot" type="button" aria-label="返回关卡选择"></button>
+        <button id="bellBtn" class="hotspot bell-hotspot" type="button" aria-label="敲钟"></button>
+        <button class="hotspot album-hotspot" type="button" data-go="encyclopedia" aria-label="图鉴"></button>
+        <button class="hotspot diary-hotspot" type="button" data-go="diary" aria-label="日记"></button>
+        <button class="hotspot badges-book-hotspot" type="button" data-go="badges" aria-label="集章册"></button>
+      </section>
+
+      <section class="scene scene-whale" data-scene="whale" data-design-width="750" data-design-height="1334" aria-label="发现鲸鱼页面">
+        <img class="scene-art" data-src="./assets/page-5.jpg" alt="发现鲸鱼提示页面" decoding="async" />
+        <button id="dispelBtn" class="hotspot dispel-hotspot" type="button" aria-label="敲钟驱散"></button>
+        <button id="skipWhaleBtn" class="hotspot skip-whale-hotspot" type="button" aria-label="暂不使用"></button>
+      </section>
+
+      <section class="scene scene-badges" data-scene="badges" data-design-width="750" data-design-height="1334" aria-label="集章册页面">
+        <img class="scene-art" data-src="./assets/page-badges.jpg" alt="集章册页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot badge-reward-hotspot" type="button" data-toast="已查看集章奖励" aria-label="集章奖励"></button>
+        <button class="hotspot tab-home-hotspot" type="button" data-go="home" aria-label="首页"></button>
+        <button class="hotspot tab-explore-hotspot" type="button" data-go="levels" aria-label="探索"></button>
+        <button class="hotspot tab-badges-hotspot" type="button" data-go="badges" aria-label="集章册"></button>
+        <button class="hotspot tab-bag-hotspot" type="button" data-toast="背包功能将在完整版本开放" aria-label="背包"></button>
+        <button class="hotspot tab-task-hotspot" type="button" data-toast="任务功能将在完整版本开放" aria-label="任务"></button>
+      </section>
+
+      <section class="scene scene-outing" data-scene="outing" data-design-width="750" data-design-height="1334" aria-label="蒲牢出游明信片页面">
+        <img class="scene-art" data-src="./assets/page-outing.jpg" alt="蒲牢出游明信片页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot outing-share-hotspot" type="button" data-toast="已生成分享明信片" aria-label="分享明信片"></button>
+        <button class="hotspot outing-save-hotspot" type="button" data-toast="明信片已收下" data-go="levels" aria-label="收下明信片"></button>
+      </section>
+
+      <section class="scene scene-diary" data-scene="diary" data-design-width="750" data-design-height="1334" aria-label="蒲牢的日记页面">
+        <img class="scene-art" data-src="./assets/page-diary.jpg" alt="蒲牢的日记页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot diary-item diary-item-1" type="button" data-go="card" aria-label="查看初到甪直日记"></button>
+        <button class="hotspot diary-item diary-item-2" type="button" data-go="card" aria-label="查看今天守护了钟声"></button>
+        <button class="hotspot diary-item diary-item-3" type="button" data-go="card" aria-label="查看在古桥边听风"></button>
+        <button class="hotspot diary-item diary-item-4" type="button" data-go="card" aria-label="查看遇见甪端的小秘密"></button>
+        <button class="hotspot diary-nav-home" type="button" data-go="home" aria-label="首页"></button>
+        <button class="hotspot diary-nav-mine" type="button" data-go="mine" aria-label="钟声守护"></button>
+        <button class="hotspot diary-nav-diary" type="button" data-go="diary" aria-label="蒲牢日记"></button>
+        <button class="hotspot diary-nav-encyclopedia" type="button" data-go="encyclopedia" aria-label="古镇风物"></button>
+        <button class="hotspot diary-nav-bag" type="button" data-toast="背包功能将在完整版本开放" aria-label="我的背包"></button>
+      </section>
+
+      <section class="scene scene-victory" data-scene="victory" data-design-width="750" data-design-height="1334" aria-label="胜利页面">
+        <img class="scene-art" data-src="./assets/page-victory.jpg" alt="胜利页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot victory-share-hotspot" type="button" data-toast="战报已准备好分享" aria-label="分享战报"></button>
+        <button class="hotspot victory-next-hotspot" type="button" data-go="levels" aria-label="下一关"></button>
+        <button class="hotspot victory-home-hotspot" type="button" data-go="home" aria-label="返回首页"></button>
+      </section>
+
+      <section class="scene scene-failure" data-scene="failure" data-design-width="750" data-design-height="1334" aria-label="失败页面">
+        <img class="scene-art" data-src="./assets/page-failure.jpg" alt="失败页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot failure-restart-hotspot" type="button" data-go="mine" aria-label="重新开始"></button>
+        <button class="hotspot failure-levels-hotspot" type="button" data-go="levels" aria-label="返回关卡选择"></button>
+      </section>
+
+      <section class="scene scene-encyclopedia" data-scene="encyclopedia" data-design-width="750" data-design-height="1334" aria-label="甪直风物图鉴页面">
+        <img class="scene-art" data-src="./assets/page-encyclopedia.jpg" alt="甪直风物图鉴页面" decoding="async" />
+        <button class="hotspot icon-hotspot settings" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot icon-hotspot notice" type="button" data-toast="公告功能将在完整版本开放" aria-label="公告"></button>
+        <button class="hotspot page-account-hotspot" type="button" data-go="account" aria-label="账号"></button>
+        <button class="hotspot encyclopedia-card ecard-1" type="button" data-go="card" aria-label="查看古桥卡片"></button>
+        <button class="hotspot encyclopedia-card ecard-2" type="button" data-go="card" aria-label="查看保圣寺罗汉卡片"></button>
+        <button class="hotspot encyclopedia-card ecard-3" type="button" data-go="card" aria-label="查看水乡服饰卡片"></button>
+        <button class="hotspot encyclopedia-card ecard-4" type="button" data-go="card" aria-label="查看甪直萝卜卡片"></button>
+        <button class="hotspot encyclopedia-card ecard-5" type="button" data-go="card" aria-label="查看保圣寺铁钟卡片"></button>
+        <button class="hotspot encyclopedia-card ecard-6" type="button" data-go="card" aria-label="查看甪直酱油卡片"></button>
+        <button class="hotspot encyclopedia-prev-hotspot" type="button" data-toast="已是第一页" aria-label="上一页"></button>
+        <button class="hotspot encyclopedia-next-hotspot" type="button" data-toast="更多风物将在完整版本开放" aria-label="下一页"></button>
+      </section>
+
+      <section class="scene scene-card" data-scene="card" data-design-width="750" data-design-height="1334" aria-label="文化小卡片页面">
+        <img class="scene-art" data-src="./assets/page-card.jpg" alt="甪直文化小卡片页面" decoding="async" />
+        <button class="hotspot card-close-hotspot" type="button" data-go="encyclopedia" aria-label="关闭卡片"></button>
+        <button class="hotspot card-collect-hotspot" type="button" data-toast="已收入图鉴" data-go="encyclopedia" aria-label="收入图鉴"></button>
+        <button class="hotspot card-continue-hotspot" type="button" data-go="mine" aria-label="继续闯关"></button>
+      </section>
+
+      <section class="scene scene-account" data-scene="account" data-design-width="750" data-design-height="1334" aria-label="个人中心页面">
+        <img class="scene-art" data-src="./assets/page-account.jpg" alt="个人中心页面" decoding="async" />
+        <button class="hotspot account-back-hotspot" type="button" data-back aria-label="返回"></button>
+        <button class="hotspot account-badges-hotspot" type="button" data-go="badges" aria-label="我的徽章"></button>
+        <button class="hotspot account-collection-hotspot" type="button" data-go="encyclopedia" aria-label="风物收藏"></button>
+        <button class="hotspot account-settings-hotspot" type="button" data-toast="设置功能将在完整版本开放" aria-label="设置"></button>
+        <button class="hotspot account-help-hotspot" type="button" data-toast="帮助反馈功能将在完整版本开放" aria-label="帮助反馈"></button>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

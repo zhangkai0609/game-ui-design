@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#d9f3f3" />
+    <title>手机扫码试玩</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 28px;
+        background:
+          radial-gradient(circle at 50% 8%, rgba(255, 255, 255, 0.88), transparent 280px),
+          linear-gradient(180deg, #d8f1f2 0%, #eef7ed 100%);
+        color: #214e43;
+        font-family: "Microsoft YaHei", system-ui, sans-serif;
+      }
+
+      .panel {
+        width: min(100%, 420px);
+        padding: 24px 22px 22px;
+        border: 1px solid rgba(84, 96, 65, 0.32);
+        border-radius: 18px;
+        background: rgba(255, 254, 244, 0.94);
+        box-shadow: 0 18px 44px rgba(45, 88, 87, 0.16);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 26px;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0;
+        color: #5c6a55;
+        line-height: 1.7;
+      }
+
+      .qr {
+        display: block;
+        width: min(72vw, 280px);
+        height: min(72vw, 280px);
+        margin: 20px auto 16px;
+        padding: 12px;
+        border: 1px solid rgba(84, 96, 65, 0.24);
+        border-radius: 14px;
+        background: #fffef4;
+      }
+
+      a {
+        display: inline-block;
+        max-width: 100%;
+        margin-top: 10px;
+        color: #2d6558;
+        overflow-wrap: anywhere;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .hint {
+        margin-top: 14px;
+        font-size: 13px;
+        color: #7a735d;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="panel" aria-label="手机扫码试玩">
+      <h1>手机扫码试玩</h1>
+      <p>手机和电脑连接同一个 Wi-Fi 后，打开相机或微信扫一扫。</p>
+      <img class="qr" src="./assets/mobile-qr.svg" alt="手机试玩二维码" />
+      <a id="previewLink" href="http://10.130.96.101:5178/">http://10.130.96.101:5178/</a>
+      <p class="hint">如果打不开，请先运行同目录里的“启动手机扫码试玩”。</p>
+    </section>
+  </body>
+</html>

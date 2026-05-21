@@ -1,0 +1,12 @@
+<view class="board">
+  <block wx:for="{{tiles}}" wx:key="id">
+    <view class="tile {{item.revealed ? 'revealed' : ''}}" data-index="{{index}}" bindtap="onTileTap">
+      <view wx:if="{{item.revealed}}" class="result-pop {{item.type}}">
+        <image class="effect" src="/assets/effects/png/{{item.effect}}.png" mode="aspectFit" />
+        <image class="icon" src="/assets/icons/png/256/{{item.icon}}.png" mode="aspectFit" />
+        <text class="caption">{{item.label}}</text>
+        <text wx:if="{{item.type === 'note'}}" class="score">+20</text>
+      </view>
+    </view>
+  </block>
+</view>

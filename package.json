@@ -1,0 +1,12 @@
+{
+  "name": "pulao-game-design",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check app.js && node --check server.mjs"
+  },
+  "devDependencies": {
+    "vercel": "^53.3.2"
+  }
+}

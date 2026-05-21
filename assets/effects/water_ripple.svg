@@ -1,0 +1,25 @@
+const board = document.querySelector('#board');
+const types = [
+  {key:'safe', label:'安全区域', icon:'../assets/icons/png/256/safe_tile.png', effect:'../assets/effects/png/water_ripple.png'},
+  {key:'note', label:'音律之声', icon:'../assets/icons/png/256/note_bonus.png', effect:'../assets/effects/png/click_burst.png'},
+  {key:'whale', label:'鲸鱼危险', icon:'../assets/icons/png/256/whale_danger.png', effect:'../assets/effects/png/warning_ring.png'},
+  {key:'luduan', label:'神秘惊喜', icon:'../assets/icons/png/256/luduan_surprise.png', effect:'../assets/effects/png/gold_sparkles.png'}
+];
+
+for(let i=0;i<16;i++){
+  const tile=document.createElement('button');
+  tile.className='tile';
+  tile.setAttribute('aria-label',`第${i+1}个方格`);
+  tile.dataset.type=types[Math.floor(Math.random()*types.length)].key;
+  tile.addEventListener('click',()=>reveal(tile));
+  board.appendChild(tile);
+}
+function reveal(tile){
+  const info=types.find(t=>t.key===tile.dataset.type) || types[0];
+  tile.classList.add('revealed');
+  tile.querySelectorAll('.result-pop').forEach(n=>n.remove());
+  const pop=document.createElement('div');
+  pop.className=`result-pop ${info.key}`;
+  pop.innerHTML=`<img class="effect" src="${info.effect}" alt=""><img class="icon" src="${info.icon}" alt="${info.label}"><span class="caption">${info.label}</span>`;
+  tile.appendChild(pop);
+}
