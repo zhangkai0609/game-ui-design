@@ -1,0 +1,11 @@
+node_modules
+.git
+.gitignore
+.vercel
+*.bat
+server.mjs
+app.js
+package.json
+package-lock.json
+README.md
+DEPLOY_VERCEL.md
